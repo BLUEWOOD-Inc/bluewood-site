@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const items = [
+  { label: '販売事業者', value: '株式会社BLUEWOOD' },
+  { label: '代表責任者', value: '青木 諒' },
+  { label: '所在地', value: '大阪府茨木市\n※詳細な住所は、お問い合わせいただいた方に遅滞なく開示します。' },
+  { label: 'お問い合わせ', value: 'メール：contact@bluewood.co.jp\n※お電話でのお問い合わせは、メールにてご連絡ください。' },
+  {
+    label: '販売価格',
+    value: 'Webサイト制作、ドメイン・メール設定等の各サービスについて、内容・規模に応じて個別にお見積もりいたします。表示価格は、別途記載がない限り税込です。',
+  },
+  {
+    label: '商品代金以外の必要料金',
+    value: 'ドメイン取得・更新費用、メールサービス（Google Workspace 等）の利用料、決済手数料、お客様側の通信環境に係る費用等が別途発生する場合があります。詳細はお見積もり時にご案内します。',
+  },
+  { label: '支払方法', value: '銀行振込（請求書払い）\n※その他の方法は個別にご相談ください。' },
+  { label: '支払時期', value: '契約内容に基づき、着手前・中間・納品時等、個別に定めます。' },
+  {
+    label: '役務の提供時期',
+    value: 'お見積もり・契約後、双方合意のスケジュールに従い提供します。具体的な納期は契約書または見積書に記載します。',
+  },
+  {
+    label: '返品・キャンセル',
+    value: '役務の性質上、制作着手後のキャンセルについては、進行状況に応じた実費・着手分をご請求する場合があります。着手前のキャンセル条件は、個別契約に従います。',
+  },
+  {
+    label: '動作環境',
+    value: 'Webサイトは一般的なモダンブラウザでの閲覧を想定しています。メール・ドメイン設定は、ご利用のサービス提供者の要件に依存します。',
+  },
+];
+---
+
+<Layout title="特定商取引法に基づく表記">
+  <PageHeader
+    label="Legal"
+    title="特定商取引法に基づく表記"
+    description="インターネットを通じた役務提供に関する表示です。"
+  />
+
+  <section class="py-20 pb-28">
+    <div class="page-container max-w-3xl">
+      <dl class="space-y-10">
+        {
+          items.map(({ label, value }) => (
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8">
+              <dt class="text-xs font-bold tracking-[0.15em] text-ink-faint uppercase font-display">{label}</dt>
+              <dd class="md:col-span-2 text-sm text-ink-muted font-medium leading-[2] whitespace-pre-line">{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="text-xs text-ink-faint font-medium mt-12">
+        ※本表記は概要です。正式な条件は個別の見積書・契約書が優先されます。内容は予告なく変更する場合があります。
+      </p>
+    </div>
+  </section>
+</Layout>

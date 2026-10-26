@@ -1,0 +1,117 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/service', label: 'Service' },
+  { href: '/company', label: 'Company' },
+  { href: '/news', label: 'News' },
+];
+
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="株式会社BLUEWOOD｜次世代の静的Webインフラ" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | 株式会社BLUEWOOD</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-line">
+      <div class="page-container h-20 flex items-center justify-between">
+        <a href="/" class="shrink-0">
+          <img
+            src="/logo.png"
+            alt="株式会社BLUEWOOD"
+            class="h-11 w-auto"
+            width="240"
+            height="44"
+          />
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          {
+            navItems.map(({ href, label }) => (
+              <a
+                href={href}
+                class:list={[
+                  'text-[11px] font-semibold tracking-[0.15em] uppercase transition-colors duration-300',
+                  isActive(href)
+                    ? 'text-accent'
+                    : 'text-ink-muted hover:text-accent',
+                ]}
+              >
+                {label}
+              </a>
+            ))
+          }
+        </nav>
+        <a
+          href="mailto:contact@bluewood.co.jp"
+          class="text-[11px] font-semibold tracking-[0.15em] text-accent border border-accent px-5 py-2 hover:bg-accent hover:text-white transition-colors duration-300 uppercase"
+        >
+          Contact
+        </a>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="border-t border-line py-12 mt-auto">
+      <div class="page-container">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+          <a href="/" class="shrink-0">
+            <img
+              src="/logo.png"
+              alt="BLUEWOOD"
+              class="h-11 w-auto"
+              width="240"
+              height="44"
+            />
+          </a>
+          <nav class="flex flex-wrap gap-x-8 gap-y-3">
+            {
+              navItems.map(({ href, label }) => (
+                <a
+                  href={href}
+                  class="text-[11px] font-medium text-ink-faint hover:text-accent transition-colors duration-300 tracking-wide"
+                >
+                  {label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-8 border-t border-line">
+          <div class="flex gap-8 text-[11px] font-medium text-ink-faint tracking-wide">
+            <a href="/privacy" class="hover:text-accent transition-colors duration-300">プライバシーポリシー</a>
+            <a href="/legal" class="hover:text-accent transition-colors duration-300">特定商取引法に基づく表記</a>
+          </div>
+          <p class="text-[11px] font-medium text-ink-faint tracking-wide">
+            &copy; {new Date().getFullYear()} BLUEWOOD Inc.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

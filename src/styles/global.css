@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans JP", sans-serif;
+  --font-display: "Montserrat", sans-serif;
+
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #525252;
+  --color-ink-faint: #a3a3a3;
+  --color-line: #e5e5e5;
+  --color-line-strong: #d4d4d4;
+  --color-surface: #fafafa;
+  --color-accent: #1971ff;
+  --color-accent-muted: #1971ff1a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans font-medium antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-5xl mx-auto px-6;
+  }
+
+  .section-rule {
+    @apply w-8 h-px bg-accent;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-sm font-semibold text-accent tracking-wide transition-all duration-300;
+  }
+
+  .link-arrow:hover {
+    @apply gap-3;
+  }
+}

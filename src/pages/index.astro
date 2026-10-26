@@ -1,17 +1,82 @@
 ---
-
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import LinkCard from '../components/LinkCard.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home">
+  <!-- HERO -->
+  <section class="min-h-[90vh] flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-px h-full bg-line"></div>
+      <div class="absolute top-0 right-[20%] w-px h-full bg-line hidden lg:block"></div>
+      <div class="absolute top-[40%] left-0 w-full h-px bg-line"></div>
+    </div>
+
+    <div class="page-container w-full py-20 relative">
+      <div class="max-w-3xl">
+        <div class="flex items-start gap-6 mb-12">
+          <div class="w-px h-16 bg-accent shrink-0 mt-2"></div>
+          <div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-[1.4] tracking-tight">
+              世界はもっと<br />便利になる気がする。
+            </h1>
+          </div>
+        </div>
+
+        <p class="text-base md:text-lg font-semibold text-accent tracking-wide pl-[calc(1.5rem+1px)] mb-14">
+          その「もっと」を、ITでつくる。
+        </p>
+
+        <div class="flex flex-wrap gap-4 pl-[calc(1.5rem+1px)]">
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 bg-ink text-white px-7 py-3 text-xs font-semibold tracking-[0.15em] uppercase hover:bg-accent transition-colors duration-300"
+          >
+            About us
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a
+            href="/service"
+            class="inline-flex items-center gap-2 border border-ink text-ink px-7 py-3 text-xs font-semibold tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+          >
+            Our Service
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER -->
+  <section class="py-24 border-t border-line bg-surface">
+    <div class="page-container">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <p class="text-xs font-bold tracking-[0.3em] text-accent uppercase font-display mb-3">Explore</p>
+          <h2 class="text-2xl font-bold text-ink tracking-tight">私たちについて</h2>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-line border border-line">
+        <LinkCard
+          href="/about"
+          label="About"
+          title="Vision"
+          description="テクノロジーで社会のデジタルインフラを構築する、私たちの理念。"
+        />
+        <LinkCard
+          href="/service"
+          label="Service"
+          title="Webサイト制作・メール設定"
+          description="Webサイトの制作から、独自ドメインのメール環境構築まで。"
+        />
+        <LinkCard
+          href="/news"
+          label="News"
+          title="最新情報"
+          description="お知らせやプレスリリースなど、BLUEWOODの最新情報。"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>

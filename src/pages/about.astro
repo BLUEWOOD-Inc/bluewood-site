@@ -1,0 +1,135 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const values = [
+  {
+    num: '01',
+    title: 'シンプルな目的',
+    desc: '複雑さより、本質的な便利さを追求する。テクノロジーは手段であり、すべての人の明日を少しずつ良くすることが目的です。',
+  },
+  {
+    num: '02',
+    title: '届いていない場所へ',
+    desc: 'ITの恩恵が行き届いていない分野、取り残されたアナログな課題にこそ向き合い、まだ誰も手をつけていない「もっと」に技術を届けます。',
+  },
+  {
+    num: '03',
+    title: '持続可能な仕組み',
+    desc: '一時的な解決ではなく、長く使い続けられる堅牢なインフラを。保守コストを抑え、ITリテラシーに依存しない仕組みをつくります。',
+  },
+];
+---
+
+<Layout title="About">
+  <PageHeader
+    label="About"
+    title="私たちについて"
+    description="世界はもっと便利になる気がする。その「もっと」を、ITでつくる。"
+  />
+
+  <!-- 代表メッセージ -->
+  <section class="py-24">
+    <div class="page-container">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16">
+        <div class="md:col-span-4">
+          <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-4">Message</p>
+          <h2 class="text-xl font-bold text-ink leading-relaxed">代表メッセージ</h2>
+          <p class="text-sm text-ink-faint font-medium mt-4">代表取締役 青木 諒</p>
+        </div>
+        <div class="md:col-span-8 space-y-6">
+          <p class="text-base font-semibold text-accent leading-relaxed">
+            世界はもっと便利になる気がする。<br />その「もっと」を、ITでつくる。
+          </p>
+          <p class="text-sm text-ink-muted leading-[2.2] font-medium">
+            近年の情報技術の進化は非常に目覚ましいものがあります。
+            私たちの日常を見渡すと、その恩恵がいまだ行き届いていない分野や、取り残されたアナログな課題がまだまだ数多く存在しています。
+          </p>
+          <p class="text-sm text-ink-muted leading-[2.2] font-medium">
+            私たちは、まだ届いていない場所へ技術を届け、すべての人の明日を昨日より少しずつ便利に変えていくこと。
+          </p>
+          <p class="text-sm text-ink font-semibold leading-[2.2]">
+            それが、私たちのシンプルな目的です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 設立の背景 -->
+  <section class="py-24 bg-surface border-y border-line">
+    <div class="page-container">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16">
+        <div class="md:col-span-4">
+          <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-4">Origin</p>
+          <h2 class="text-xl font-bold text-ink leading-relaxed">設立の背景</h2>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-sm text-ink-muted leading-[2.2] font-medium mb-6">
+            ITの技術を使えばすぐに解決できる問題が、世の中にまだ多く残されていると感じたことが、BLUEWOODを設立したきっかけです。
+          </p>
+          <p class="text-sm text-ink-muted leading-[2.2] font-medium">
+            テクノロジーの進化は目覚ましい一方で、その恩恵が行き渡っていない現場は少なくありません。
+            私たちは、そうした「当たり前のはずの便利さ」が届いていない場所にこそ、ITの力を届けたいと考えています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision / Mission / Values -->
+  <section class="py-24">
+    <div class="page-container">
+      <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-12">Vision / Mission / Values</p>
+
+      <div class="grid md:grid-cols-2 gap-px bg-line border border-line mb-16">
+        <div class="bg-white p-10 md:p-12">
+          <p class="text-xs font-bold tracking-[0.2em] text-accent uppercase font-display mb-4">Vision</p>
+          <h3 class="text-lg font-bold text-ink mb-4 leading-relaxed">目指す姿</h3>
+          <p class="text-sm text-ink-muted leading-[2] font-medium">
+            テクノロジーの恩恵が届いていない場所をなくし、すべての人の明日が、昨日より少しずつ便利になっていく社会を実現する。
+          </p>
+        </div>
+        <div class="bg-white p-10 md:p-12">
+          <p class="text-xs font-bold tracking-[0.2em] text-accent uppercase font-display mb-4">Mission</p>
+          <h3 class="text-lg font-bold text-ink mb-4 leading-relaxed">使命</h3>
+          <p class="text-sm text-ink-muted leading-[2] font-medium">
+            まだ届いていない場所へ技術を届け、取り残されたアナログな課題をITの力で解決する。「もっと」を、ITでつくり続ける。
+          </p>
+        </div>
+      </div>
+
+      <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-8">Values</p>
+      <div class="grid md:grid-cols-3 gap-px bg-line border border-line">
+        {
+          values.map(({ num, title, desc }) => (
+            <div class="bg-white p-8 md:p-10">
+              <p class="text-xs font-bold text-accent font-display mb-4">{num}</p>
+              <h3 class="text-base font-bold text-ink mb-4">{title}</h3>
+              <p class="text-sm text-ink-muted leading-[1.9] font-medium">{desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-24 bg-surface border-y border-line">
+    <div class="page-container text-center max-w-2xl mx-auto">
+      <p class="text-xs font-bold tracking-[0.3em] text-accent uppercase font-display mb-8">Philosophy</p>
+      <blockquote class="text-lg md:text-xl font-semibold text-ink leading-[2] tracking-tight">
+        「その『もっと』を、ITでつくる。」
+      </blockquote>
+      <p class="text-sm text-ink-muted leading-[2] font-medium mt-8">
+        大きな理想論ではなく、目の前の不便を一つずつ解消していく。
+        それがBLUEWOODの考える、テクノロジーのあるべき姿です。
+      </p>
+      <div class="section-rule mx-auto mt-10"></div>
+    </div>
+  </section>
+
+  <CtaSection />
+</Layout>

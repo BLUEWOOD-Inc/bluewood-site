@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Layout title="Company">
+  <PageHeader
+    label="Company"
+    title="会社概要"
+    description="株式会社BLUEWOODの基本情報です。"
+  />
+
+  <section class="py-24">
+    <div class="page-container max-w-3xl">
+      <dl class="divide-y divide-line">
+        {
+          [
+            { label: 'Company Name', value: '株式会社BLUEWOOD', bold: true },
+            { label: 'Representative', value: '代表取締役 青木 諒' },
+            { label: 'Established', value: '2026年10月' },
+            { label: 'Location', value: '大阪府茨木市' },
+          ].map(({ label, value, bold }) => (
+            <div class="py-6 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+              <dt class="text-xs font-bold tracking-[0.2em] text-ink-faint uppercase font-display">{label}</dt>
+              <dd class:list={['md:col-span-2 tracking-wide', bold ? 'text-ink font-bold text-base' : 'text-ink-muted font-medium']}>
+                {value}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+</Layout>

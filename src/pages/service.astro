@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const services = [
+  {
+    num: '01',
+    label: 'Web Production',
+    title: 'Webサイト制作',
+    description:
+      'コーポレートサイト・ランディングページ・ポートフォリオなど、目的に合わせたWebサイトを企画から制作・公開まで一貫して対応します。見た目だけでなく、表示速度・SEO・更新のしやすさまで考えた、長く使えるサイトをお届けします。',
+    points: [
+      'コーポレートサイト・LP・ポートフォリオの制作',
+      'スマートフォン対応（レスポンシブデザイン）',
+      '高速表示・SEOを意識した設計',
+      '公開後の更新・保守サポート',
+    ],
+  },
+  {
+    num: '02',
+    label: 'Mail & Domain',
+    title: 'ドメイン・メール設定',
+    description:
+      '独自ドメインの取得から、会社名のメールアドレス（例：info@yourcompany.co.jp）の設定まで代行します。Google Workspace や Microsoft 365 など、用途に合った環境を選定し、DNS設定・メールルーティングまでまとめて対応。面倒な初期設定を丸ごとお任せいただけます。',
+    points: [
+      '独自ドメインの取得・移管サポート',
+      '会社ドメインのメールアドレス設定',
+      'Google Workspace / Microsoft 365 等の導入',
+      'DNS・MXレコード等の技術設定',
+    ],
+  },
+];
+---
+
+<Layout title="Service">
+  <PageHeader
+    label="Service"
+    title="事業内容"
+    description="Webサイトの制作から、独自ドメインを使ったメール環境の構築まで。デジタル上の「顔」と「信頼」を、まとめて整えます。"
+  />
+
+  <section class="py-24">
+    <div class="page-container border border-line divide-y divide-line">
+      {
+        services.map(({ num, label, title, description, points }) => (
+          <article class="p-10 md:p-16 relative">
+            <div class="absolute top-0 left-0 w-8 h-px bg-accent"></div>
+            <div class="flex flex-col md:flex-row gap-10 md:gap-16">
+              <div class="md:w-2/5 shrink-0">
+                <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-2">
+                  {num} — {label}
+                </p>
+                <h2 class="text-2xl font-bold text-ink tracking-tight">{title}</h2>
+              </div>
+              <div class="md:w-3/5">
+                <p class="text-sm text-ink-muted leading-[2] font-medium mb-8">{description}</p>
+                <ul class="space-y-3">
+                  {
+                    points.map((point) => (
+                      <li class="flex items-start gap-3 text-sm text-ink-muted font-medium">
+                        <span class="w-1 h-1 rounded-full bg-accent shrink-0 mt-2.5"></span>
+                        {point}
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="page-container">
+      <div class="border border-line p-10 md:p-14 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] text-accent uppercase font-display mb-4">Contact</p>
+        <h2 class="text-xl font-bold text-ink mb-4">まずはお気軽にご相談ください</h2>
+        <p class="text-sm text-ink-muted leading-relaxed font-medium mb-8 max-w-lg mx-auto">
+          Webサイト制作・ドメイン・メール設定、どちらもお見積もり無料です。
+          ご要望をお聞きしたうえで、最適なプランをご提案します。
+        </p>
+        <a
+          href="mailto:contact@bluewood.co.jp"
+          class="inline-flex items-center gap-2 bg-accent text-white px-8 py-3 text-xs font-semibold tracking-[0.15em] uppercase hover:bg-ink transition-colors duration-300"
+        >
+          お問い合わせ
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

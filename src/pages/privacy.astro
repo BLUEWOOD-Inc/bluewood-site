@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const sections = [
+  {
+    title: '1. 基本方針',
+    body: '株式会社BLUEWOOD（以下「当社」）は、お客様の個人情報の重要性を認識し、個人情報の保護に関する法律その他関連法令を遵守し、適切な取り扱いと保護に努めます。',
+  },
+  {
+    title: '2. 取得する情報',
+    body: '当社は、お問い合わせ・ご相談・サービス提供にあたり、氏名、会社名、メールアドレス、電話番号、その他お問い合わせ内容に含まれる情報を取得する場合があります。また、ウェブサイトの利用状況把握のため、Cookie およびアクセスログ（IPアドレス、ブラウザ種別、閲覧ページ等）を取得する場合があります。',
+  },
+  {
+    title: '3. 利用目的',
+    body: '取得した個人情報は、お問い合わせへの回答、見積もり・契約・サービス提供、請求・サポート、サービス改善、重要なお知らせの送付、およびこれらに付随する業務のために利用します。',
+  },
+  {
+    title: '4. 第三者提供',
+    body: '当社は、法令に基づく場合を除き、本人の同意なく個人情報を第三者に提供しません。業務委託先に預託する場合は、委託先を適切に監督します。',
+  },
+  {
+    title: '5. 安全管理',
+    body: '当社は、個人情報への不正アクセス、漏えい、改ざん、滅失等を防止するため、合理的な安全管理措置を講じます。',
+  },
+  {
+    title: '6. 開示・訂正・削除等',
+    body: '本人から、当社が保有する個人情報の開示、訂正、利用停止、削除等のご請求があった場合、法令に従い、本人確認のうえ適切に対応します。',
+  },
+  {
+    title: '7. Cookie の利用',
+    body: '当サイトでは、利便性向上およびアクセス解析のため Cookie を使用する場合があります。ブラウザの設定により Cookie を無効にできますが、一部機能が利用できなくなる場合があります。',
+  },
+  {
+    title: '8. お問い合わせ窓口',
+    body: '本ポリシーに関するお問い合わせは、下記までご連絡ください。\n\n株式会社BLUEWOOD\nメール：contact@bluewood.co.jp',
+  },
+  {
+    title: '9. 改定',
+    body: '当社は、必要に応じて本ポリシーを改定することがあります。改定後の内容は、当サイトに掲載した時点から効力を生じます。',
+  },
+];
+---
+
+<Layout title="プライバシーポリシー">
+  <PageHeader
+    label="Legal"
+    title="プライバシーポリシー"
+    description="当社における個人情報の取り扱いについて定めます。"
+  />
+
+  <section class="pb-28">
+    <div class="page-container max-w-3xl">
+      <ol class="space-y-14 list-none">
+        {
+          sections.map(({ title, body }) => (
+            <li>
+              <h2 class="text-base font-bold text-ink mb-4 tracking-tight">{title}</h2>
+              <p class="text-sm text-ink-muted leading-[2] font-medium whitespace-pre-line">{body}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="text-xs text-ink-faint font-medium mt-16">制定日：2026年10月1日</p>
+    </div>
+  </section>
+</Layout>
